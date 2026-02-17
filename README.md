@@ -11,8 +11,10 @@ Projeto simples de calculadora construída com HTML, CSS (Grid) e JavaScript. Id
 - Botão de inversão de sinal (+/−) do número atual
 - Validação básica da expressão antes de calcular
 - Histórico de operações com persistência local
-- Suporte a teclado (0–9, + - * / . | Enter = | Backspace | Esc)
+- Suporte a teclado (0–9, + - \* / . | Enter = | Backspace | Esc)
 - Alternância de tema claro/escuro com preferência salva
+- Design responsivo aprimorado com tipografia moderna (Rubik) e sombras suaves
+- Suporte básico a PWA (ícone e manifest) para instalação em dispositivos móveis
 
 ## Demonstração
 
@@ -32,7 +34,11 @@ devclub-grid/
 ├─ index.html
 ├─ assets/
 │  ├─ style.css
-│  └─ script.js
+│  ├─ script.js
+│  ├─ favicon.svg
+│  └─ site.webmanifest
+├─ .gitignore
+├─ LICENSE
 └─ README.md
 ```
 
@@ -43,8 +49,10 @@ devclub-grid/
 - Tratativa de erros e validação de entrada antes do cálculo
 - Histórico com armazenamento em localStorage e botão para limpar
 - Suporte completo a teclado (digitar números/operadores, Enter, Backspace, Esc)
-- Responsividade com tipografia e espaçamentos usando clamp e grid flexível
-- Pequenas melhorias de acessibilidade (rótulos e atributos úteis)
+- Responsividade com tipografia (clamp), grid flexível e transições suaves
+- Melhorias de acessibilidade (ARIA labels, contraste e navegação por teclado)
+- SEO básico (meta description, keywords, theme-color)
+- Otimização de performance (script defer, preconnect fonts)
 
 ## Ideias futuras
 
