@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Grid</title>
+    <!-- meta description -->
+    <meta name="description" content="Calculadora grid com operações básicas" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <section>
+      <!-- display -->
+      <input
+        class="display"
+        type="text"
+        aria-label="Display da calculadora"
+        placeholder="0"
+        readonly
+        inputmode="none"
+        autocomplete="off"
+      />
+
+      <!-- botões -->
+      <button class="gray-button" onclick="limparDisplay()">AC</button>
+      <button class="gray-button" onclick="inverterSinal()">+/-</button>
+      <button class="blue-button" onclick="adicionarCaractere('/')">/</button>
+      <button class="blue-button" onclick="adicionarCaractere('*')">*</button>
+      <button class="black-button" onclick="adicionarCaractere('7')">7</button>
+      <button class="black-button" onclick="adicionarCaractere('8')">8</button>
+      <button class="black-button" onclick="adicionarCaractere('9')">9</button>
+      <button class="blue-button" onclick="adicionarCaractere('-')">-</button>
+      <button class="black-button" onclick="adicionarCaractere('4')">4</button>
+      <button class="black-button" onclick="adicionarCaractere('5')">5</button>
+      <button class="black-button" onclick="adicionarCaractere('6')">6</button>
+      <button class="blue-button" onclick="adicionarCaractere('+')">+</button>
+      <button class="black-button" onclick="adicionarCaractere('1')">1</button>
+      <button class="black-button" onclick="adicionarCaractere('2')">2</button>
+      <button class="black-button" onclick="adicionarCaractere('3')">3</button>
+      <button class="blue-button equal" onclick="calcularResultado()">=</button>
+      <button class="black-button zero" onclick="adicionarCaractere('0')">
+        0
+      </button>
+      <button class="black-button" onclick="adicionarCaractere('.')">.</button>
+    </section>
+    <details class="history" open>
+      <summary>Histórico</summary>
+      <ul id="history-list" aria-live="polite"></ul>
+      <button class="clear-history" onclick="limparHistorico()">Limpar histórico</button>
+    </details>
+  </body>
+  <!-- script -->
+  <script src="assets/script.js"></script>
+</html>
