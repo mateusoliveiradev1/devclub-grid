@@ -5,10 +5,13 @@ Projeto simples de calculadora construída com HTML, CSS (Grid) e JavaScript. Id
 ## Recursos
 
 - Layout com CSS Grid e tema escuro
+- Responsividade total (mobile → desktop)
 - Operações básicas: soma, subtração, multiplicação e divisão
 - Botão AC para limpar o display
 - Botão de inversão de sinal (+/−) do número atual
 - Validação básica da expressão antes de calcular
+- Histórico de operações com persistência local
+- Suporte a teclado (0–9, + - * / . | Enter = | Backspace | Esc)
 
 ## Demonstração
 
@@ -37,12 +40,13 @@ devclub-grid/
 - Correção do botão “+/−” para realmente inverter o sinal
 - Display marcado como somente leitura para evitar edições acidentais
 - Tratativa de erros e validação de entrada antes do cálculo
+- Histórico com armazenamento em localStorage e botão para limpar
+- Suporte completo a teclado (digitar números/operadores, Enter, Backspace, Esc)
+- Responsividade com tipografia e espaçamentos usando clamp e grid flexível
 - Pequenas melhorias de acessibilidade (rótulos e atributos úteis)
 
 ## Ideias futuras
 
-- Histórico de operações
-- Teclado físico (suporte a pressionar teclas)
 - Testes automatizados de funções principais
 - Tema claro/escuro com alternância
 
