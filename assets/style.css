@@ -1,5 +1,39 @@
 /* Global */
 
+:root {
+  --bg: #daf0ff;
+  --panel-bg: #17181a;
+  --text: #ffffff;
+  --button-black: #303136;
+  --button-blue: #005db2;
+  --button-equal: #1991ff;
+  --button-gray: #616161;
+  --history-bg: #ffffff;
+  --history-text: #111111;
+  --history-border: #ececec;
+  --accent-danger: #ef4444;
+  --accent-primary: #1991ff;
+  --accent-muted: #6b7280;
+  --shadow: rgba(0, 0, 0, 0.2);
+}
+
+.theme-light {
+  --bg: #f5f7fb;
+  --panel-bg: #ffffff;
+  --text: #0f172a;
+  --button-black: #e5e7eb;
+  --button-blue: #2563eb;
+  --button-equal: #3b82f6;
+  --button-gray: #cbd5e1;
+  --history-bg: #ffffff;
+  --history-text: #0f172a;
+  --history-border: #e5e7eb;
+  --accent-danger: #ef4444;
+  --accent-primary: #2563eb;
+  --accent-muted: #6b7280;
+  --shadow: rgba(2, 6, 23, 0.12);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +47,7 @@ body {
   display: grid;
   justify-content: center;
   align-items: center;
-  background-color: #daf0ff;
+  background-color: var(--bg);
   padding: 2vh 2vw;
   font-family:
     system-ui,
@@ -27,7 +61,11 @@ body {
 }
 
 section {
-  background: linear-gradient(191.34deg, #17181a -4.95%, #17181a 103.74%);
+  background: linear-gradient(
+    191.34deg,
+    var(--panel-bg) -4.95%,
+    var(--panel-bg) 103.74%
+  );
   width: min(92vw, 420px);
   aspect-ratio: 375 / 568;
   border-radius: 35px;
@@ -36,19 +74,19 @@ section {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(6, 1fr);
   gap: clamp(6px, 1.6vw, 10px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 30px var(--shadow);
 }
 
 /* Display */
 
 input.display {
   font-size: clamp(28px, 7vw, 48px);
-  background-color: #17181a;
+  background-color: var(--panel-bg);
   border: none;
   outline: none;
   text-align: right;
   padding-top: clamp(24px, 8vw, 50px);
-  color: white;
+  color: var(--text);
   grid-row: 1 / 2;
   grid-column: 1 / 5;
   border-radius: 8px;
@@ -60,7 +98,7 @@ button {
   margin: 0;
   border-radius: 10px;
   cursor: pointer;
-  color: white;
+  color: var(--text);
   padding: clamp(8px, 2.4vw, 12px);
   transition:
     opacity 0.15s ease,
@@ -78,35 +116,54 @@ button:active {
 /* Buttons */
 
 .black-button {
-  background: #303136;
+  background: var(--button-black);
 }
 
 .blue-button {
-  background: #005db2;
+  background: var(--button-blue);
 }
 
 .equal {
-  background: #1991ff;
+  background: var(--button-equal);
   grid-row: 5/7;
   grid-column: 4/5;
 }
 
 .gray-button {
-  background: #616161;
+  background: var(--button-gray);
 }
 
 .zero {
   grid-column: 1/3;
 }
 
+/* Topbar */
+.topbar {
+  width: min(92vw, 420px);
+  margin: 12px auto 8px auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.theme-toggle {
+  background: var(--button-blue);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 /* Histórico */
 details.history {
   margin-top: 16px;
   width: min(92vw, 420px);
-  background: #ffffff;
-  color: #111;
+  background: var(--history-bg);
+  color: var(--history-text);
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px var(--shadow);
 }
 
 details.history > summary {
@@ -125,7 +182,7 @@ details.history > summary {
 
 #history-list li {
   padding: 8px 0;
-  border-top: 1px solid #ececec;
+  border-top: 1px solid var(--history-border);
   font-family:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
@@ -133,12 +190,47 @@ details.history > summary {
   display: flex;
   justify-content: space-between;
   gap: 12px;
+  align-items: center;
+}
+
+.history-expr {
+  color: var(--history-text);
+  opacity: 0.9;
+}
+
+.history-res {
+  font-weight: 700;
+  color: var(--history-text);
+}
+
+.history-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.history-actions button {
+  padding: 6px 8px;
+  font-size: 12px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.history-reuse {
+  background: var(--accent-primary);
+}
+
+.history-copy {
+  background: var(--accent-muted);
+}
+
+.history-delete {
+  background: var(--accent-danger);
 }
 
 .clear-history {
   margin: 12px 16px 16px 16px;
   padding: 8px 12px;
-  background: #ef4444;
+  background: var(--accent-danger);
   color: #fff;
   border: none;
   border-radius: 8px;

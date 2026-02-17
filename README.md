@@ -12,6 +12,7 @@ Projeto simples de calculadora construída com HTML, CSS (Grid) e JavaScript. Id
 - Validação básica da expressão antes de calcular
 - Histórico de operações com persistência local
 - Suporte a teclado (0–9, + - * / . | Enter = | Backspace | Esc)
+- Alternância de tema claro/escuro com preferência salva
 
 ## Demonstração
 
@@ -48,7 +49,6 @@ devclub-grid/
 ## Ideias futuras
 
 - Testes automatizados de funções principais
-- Tema claro/escuro com alternância
 
 ## Tecnologias
 

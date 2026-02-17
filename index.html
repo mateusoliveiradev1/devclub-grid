@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
+    <div class="topbar">
+      <button
+        class="theme-toggle"
+        onclick="alternarTema()"
+        aria-pressed="false"
+        id="themeToggle"
+      >
+        Alternar tema
+      </button>
+    </div>
     <section>
       <!-- display -->
       <input
@@ -46,7 +56,9 @@
     <details class="history" open>
       <summary>Histórico</summary>
       <ul id="history-list" aria-live="polite"></ul>
-      <button class="clear-history" onclick="limparHistorico()">Limpar histórico</button>
+      <button class="clear-history" onclick="limparHistorico()">
+        Limpar histórico
+      </button>
     </details>
   </body>
   <!-- script -->
