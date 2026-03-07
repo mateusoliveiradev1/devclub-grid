@@ -1,0 +1,256 @@
+/* src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --color-bg: #050505;
+  --color-accent: #00E5FF;
+  --color-text: #FFFFFF;
+  --color-text-dim: #94A3B8;
+  --slab-bg: rgba(15, 15, 20, 0.8);
+  --slab-border: rgba(255, 255, 255, 0.1);
+  --slab-highlight: rgba(255, 255, 255, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.atmosphere {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 50%, #111, #050505);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ironclad Calculator Slab */
+main.calculator-container {
+  background: var(--slab-bg);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--slab-border);
+
+  /* Fixed Dimensions for Absolute Reliability */
+  width: 400px;
+  height: 740px;
+
+  border-radius: 48px;
+  padding: 48px;
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8), inset 0 1px 1px var(--slab-highlight);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Display */
+.display-wrapper {
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.previous-op {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dim);
+  height: 16px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+input.display {
+  width: 100%;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: right;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+/* Ironclad Grid */
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 12px;
+  width: 100%;
+  flex: 1;
+}
+
+button {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--color-text);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-accent);
+}
+
+button:active {
+  transform: scale(0.94);
+}
+
+.btn-num {
+  font-weight: 400;
+  color: #f8fafc;
+}
+
+.btn-op {
+  color: var(--color-accent);
+  background: rgba(0, 229, 255, 0.08);
+}
+
+.btn-spec {
+  color: var(--color-text-dim);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.btn-equal {
+  background: var(--color-accent);
+  color: #000;
+  font-weight: 700;
+  border: none;
+}
+
+/* History Trace */
+.history-section {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+  background: #080808;
+  z-index: 100;
+  padding: 48px;
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.history-section.visible {
+  transform: translateY(0);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #222;
+  padding-bottom: 14px;
+}
+
+.history-header h3 {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #555;
+  text-transform: uppercase;
+}
+
+#history-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.history-item {
+  padding: 14px 18px;
+  background: #111;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-item strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--color-accent);
+}
+
+/* Toggle */
+.history-toggle {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+  opacity: 0.6;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 9px;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.history-toggle:hover {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+/* Theme UI */
+.theme-controls {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  z-index: 200;
+}
+
+.btn-theme {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #111;
+  border: 1px solid #333;
+  cursor: pointer;
+}

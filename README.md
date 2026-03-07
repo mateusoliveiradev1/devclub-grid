@@ -1,73 +1,73 @@
-# Calculadora Grid
+# React + TypeScript + Vite
 
-Projeto simples de calculadora construída com HTML, CSS (Grid) e JavaScript. Ideal para portfólio: interface moderna, layout responsivo e código limpo.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Recursos
+Currently, two official plugins are available:
 
-- Layout com CSS Grid e tema escuro
-- Responsividade total (mobile → desktop)
-- Operações básicas: soma, subtração, multiplicação e divisão
-- Botão AC para limpar o display
-- Botão de inversão de sinal (+/−) do número atual
-- Validação básica da expressão antes de calcular
-- Histórico de operações com persistência local
-- Suporte a teclado (0–9, + - \* / . | Enter = | Backspace | Esc)
-- Alternância de tema claro/escuro com preferência salva
-- Design responsivo aprimorado com tipografia moderna (Rubik) e sombras suaves
-- Suporte básico a PWA (ícone e manifest) para instalação em dispositivos móveis
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Demonstração
+## React Compiler
 
-- Abra o arquivo `index.html` diretamente no navegador
-- Opcional: use uma extensão como “Live Server” do VS Code para atualização automática
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Como usar
+## Expanding the ESLint configuration
 
-1. Faça o download/clonagem do projeto.
-2. Abra `index.html` em um navegador moderno.
-3. Use os botões para inserir números e operadores. Clique em `=` para ver o resultado.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Estrutura do projeto
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-devclub-grid/
-├─ index.html
-├─ assets/
-│  ├─ style.css
-│  ├─ script.js
-│  ├─ favicon.svg
-│  └─ site.webmanifest
-├─ .gitignore
-├─ LICENSE
-└─ README.md
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
-
-## Melhorias incluídas
-
-- Correção do botão “+/−” para realmente inverter o sinal
-- Display marcado como somente leitura para evitar edições acidentais
-- Tratativa de erros e validação de entrada antes do cálculo
-- Histórico com armazenamento em localStorage e botão para limpar
-- Suporte completo a teclado (digitar números/operadores, Enter, Backspace, Esc)
-- Responsividade com tipografia (clamp), grid flexível e transições suaves
-- Melhorias de acessibilidade (ARIA labels, contraste e navegação por teclado)
-- SEO básico (meta description, keywords, theme-color)
-- Otimização de performance (script defer, preconnect fonts)
-
-## Ideias futuras
-
-- Testes automatizados de funções principais
-
-## Tecnologias
-
-- HTML5
-- CSS3 (Grid Layout)
-- JavaScript (vanilla)
-
-## Contribuindo
-
-Sinta-se à vontade para abrir issues e enviar pull requests com melhorias no layout, acessibilidade, testes ou novas funções.
-
-## Licença
-
-Distribuído sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
