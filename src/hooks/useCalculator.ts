@@ -85,6 +85,27 @@ export const useCalculator = () => {
         setState((prev) => ({ ...prev, theme: prev.theme === 'dark' ? 'light' : 'dark' }));
     }, []);
 
+    // Desktop Professionalism: Global Keyboard Support
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            const key = e.key;
+
+            if (/^[0-9]$/.test(key)) handleInput(key);
+            if (['+', '-', '*', '/', '.', '(', ')', '^', '%'].includes(key)) handleInput(key);
+            if (key === 'Enter' || key === '=') {
+                e.preventDefault();
+                calculate();
+            }
+            if (key === 'Backspace') backspace();
+            if (key === 'Escape') clear();
+            if (key.toLowerCase() === 's') handleInput('√'); // 's' for square root
+            if (key.toLowerCase() === 'i') invert(); // 'i' for invert
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [handleInput, calculate, clear, backspace, invert]);
+
     return {
         state,
         handleInput,
